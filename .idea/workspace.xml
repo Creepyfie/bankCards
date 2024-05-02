@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0dc4f03-7314-437f-b918-b53879e4f958" name="Changes" comment="Первые наработки">
-      <change afterPath="$PROJECT_DIR$/src/main/java/bankStuff/CreditCardWithBonuces.java" afterDir="false" />
+    <list default="true" id="c0dc4f03-7314-437f-b918-b53879e4f958" name="Changes" comment="Добавил кредитную карту с бонусами">
+      <change afterPath="$PROJECT_DIR$/src/main/java/bankStuff/DebitCardWithCashbackOnBalance.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankStuff/BankCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankStuff/BankCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankStuff/CreditCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankStuff/CreditCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankStuff/DebitCard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankStuff/DebitCard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/bankStuff/DebitCardWithBonuces.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/bankStuff/DebitCardBigBonuces.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,16 +34,21 @@
     <option name="autoscrollToSource" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="bankStuff" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -46,7 +57,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1714643299046</updated>
-      <workItem from="1714643300712" duration="5797000" />
+      <workItem from="1714643300712" duration="5895000" />
+      <workItem from="1714649563254" duration="693000" />
     </task>
     <task id="LOCAL-00001" summary="Первые наработки">
       <created>1714648843606</created>
@@ -55,7 +67,14 @@
       <option name="project" value="LOCAL" />
       <updated>1714648843606</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Добавил кредитную карту с бонусами">
+      <created>1714649254968</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1714649254968</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -74,6 +93,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Первые наработки" />
-    <option name="LAST_COMMIT_MESSAGE" value="Первые наработки" />
+    <MESSAGE value="Добавил кредитную карту с бонусами" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил кредитную карту с бонусами" />
   </component>
 </project>

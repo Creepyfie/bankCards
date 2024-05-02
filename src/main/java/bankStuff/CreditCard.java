@@ -25,18 +25,19 @@ public class CreditCard extends BankCard {
         } else {
             bankCardBalance.add(addingAmount);
         }
+        System.out.println("Баланс успешно пополнен на: " + addingAmount);
     }
 
     @Override
-    public boolean pay(BigDecimal payingAmount) {
-        if (payingAmount.compareTo(bankCardBalance.add(creditCreditFundsFunds)) > 0){
+    public boolean pay(BigDecimal amountToPay) {
+        if (amountToPay.compareTo(bankCardBalance.add(creditCreditFundsFunds)) > 0){
             System.out.println("Недостаточно средств на карте и кредитном счету!");
             return false;
         } else
-            if (bankCardBalance.compareTo(payingAmount) >= 0) {
-                bankCardBalance.subtract(payingAmount);
+            if (bankCardBalance.compareTo(amountToPay) >= 0) {
+                bankCardBalance.subtract(amountToPay);
             }   else {
-                creditCreditFundsFunds.subtract(payingAmount.subtract(bankCardBalance));
+                creditCreditFundsFunds.subtract(amountToPay.subtract(bankCardBalance));
                 bankCardBalance = BigDecimal.ZERO;
             }
             return true;

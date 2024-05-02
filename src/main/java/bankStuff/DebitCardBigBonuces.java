@@ -1,10 +1,10 @@
 package bankStuff;
 
 import java.math.BigDecimal;
-import java.math.BigInteger;
 import java.math.RoundingMode;
+
 //Дебетовая карта с бонусом в размере 1% от суммы покупки. 10 бонусов эквивалентно 1 валютной единице на карте
-public class DebitCardWithBonuces extends DebitCard{
+public class DebitCardBigBonuces extends DebitCard{
 
     BigDecimal debitCardBonuces;
     BigDecimal bonucesPerCent = BigDecimal.valueOf(0.01);

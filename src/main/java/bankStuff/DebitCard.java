@@ -4,8 +4,9 @@ import java.math.BigDecimal;
 
 public class DebitCard extends BankCard {
     @Override
-    public void topUpBalance(BigDecimal amount) {
-        this.bankCardBalance.add(amount);
+    public void topUpBalance(BigDecimal addingAmount) {
+        this.bankCardBalance.add(addingAmount);
+        System.out.println("Баланс успешно пополнен на: " + addingAmount);
     }
 
     @Override
@@ -22,7 +23,7 @@ public class DebitCard extends BankCard {
 
     @Override
     public void getBalanceInformation() {
-        System.out.println("Кол-во денег на дебетовой карте: = " + bankCardBalance);
+        System.out.println("Баланс на дебетовой карте: = " + bankCardBalance);
     }
 
     @Override

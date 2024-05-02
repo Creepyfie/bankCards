@@ -4,14 +4,22 @@ import java.math.BigDecimal;
 
 public abstract class BankCard {
 
-    public BigDecimal bankCardBalance;
+    private BigDecimal bankCardBalance = BigDecimal.ZERO;
 
-    public abstract void topUpBalance(BigDecimal addingAmount);
+    protected BigDecimal getBankCardBalance() {
+        return this.bankCardBalance;
+    }
 
-    public abstract boolean pay(BigDecimal amountToPay);
+    protected void setBankCardBalance(BigDecimal newBankCardBalance) {
+        this.bankCardBalance = newBankCardBalance;
+    }
 
-    public abstract void getBalanceInformation();
+    protected abstract void topUpBalance(BigDecimal addingAmount);
 
-    public abstract void getInformationAboutAvailableFunds();
+    protected abstract boolean pay(BigDecimal amountToPay);
+
+    protected abstract void getBalanceInformation();
+
+    protected abstract void getInformationAboutAvailableFunds();
 
 }

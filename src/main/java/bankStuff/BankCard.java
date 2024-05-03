@@ -2,7 +2,7 @@ package bankStuff;
 
 import java.math.BigDecimal;
 
-public abstract class BankCard {
+abstract class BankCard {
 
     private BigDecimal bankCardBalance = BigDecimal.ZERO;
 

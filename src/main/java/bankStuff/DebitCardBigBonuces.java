@@ -21,7 +21,7 @@ public class DebitCardBigBonuces extends DebitCard{
 
         if (super.pay(amountToPay)){
             this.setDebitCardBonuceAmount(this.getDebitCardBonuceAmount().add(amountToPay
-                    .multiply(bonucePerCent).setScale(0, 4)));
+                    .multiply(bonucePerCent).setScale(0, RoundingMode.HALF_UP)));
             return true;
         }
         return false;

@@ -6,13 +6,29 @@ import java.math.BigDecimal;
 public class CreditCardWithBonuces extends CreditCard{
 
     private static final BigDecimal topUpBonucePercent = BigDecimal.valueOf(0.005);
+    private BigDecimal creditCardBonuceToUpAmount = BigDecimal.ZERO;
 
-    public BigDecimal getTopUpBonucePercent() {
-        return topUpBonucePercent;
+    public BigDecimal getCreditCardBonuceToUpAmount() {
+        return creditCardBonuceToUpAmount;
     }
+
+    public void setCreditCardBonuceToUpAmount(BigDecimal updatedBonuceTopUpAmount) {
+        creditCardBonuceToUpAmount = updatedBonuceTopUpAmount;
+    }
+
 
     @Override
     public void topUpBalance(BigDecimal addingAmount) {
-        super.topUpBalance(addingAmount.add(addingAmount.multiply(this.getTopUpBonucePercent())));
+        BigDecimal bonuceTopUp = addingAmount.multiply(topUpBonucePercent);
+        super.topUpBalance(addingAmount.add(bonuceTopUp));
+        setCreditCardBonuceToUpAmount(getCreditCardBonuceToUpAmount().add(bonuceTopUp));
+    }
+
+    @Override
+    public void getInformationAboutAvailableFunds() {
+        System.out.println("Кредитный лимит: " + creditCardCreditLimit);
+        System.out.println("Кредитные средства: " + getCreditCardCreditFunds());
+        System.out.println("Собственные средства: " + getBankCardBalance());
+        System.out.println("Всего накоплено кэшбека на баланс: " + getCreditCardBonuceToUpAmount());
     }
 }

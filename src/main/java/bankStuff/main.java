@@ -13,11 +13,11 @@ public class main {
         creditCard.getBalanceInformation();
 
 
-        DebitCardBigBonuces debitCardBigBonuces = new DebitCardBigBonuces();
-        debitCardBigBonuces.topUpBalance(new BigDecimal(2250));
-        debitCardBigBonuces.getBalanceInformation();
-        debitCardBigBonuces.pay(new BigDecimal(100));
-        debitCardBigBonuces.getInformationAboutAvailableFunds();
+        DebitCardWithBonuces debitCardWithBonuces = new DebitCardWithBonuces();
+        debitCardWithBonuces.topUpBalance(new BigDecimal(2250));
+        debitCardWithBonuces.getBalanceInformation();
+        debitCardWithBonuces.pay(new BigDecimal(100));
+        debitCardWithBonuces.getInformationAboutAvailableFunds();
 
         CreditCardWithBonuces creditCardWithBonuces = new CreditCardWithBonuces();
         creditCardWithBonuces.topUpBalance(new BigDecimal(10000));

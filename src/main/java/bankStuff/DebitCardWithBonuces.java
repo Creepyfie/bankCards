@@ -3,25 +3,25 @@ package bankStuff;
 import java.math.*;
 
 //Дебетовая карта с бонусом в размере 1% от суммы покупки.
-public class DebitCardBigBonuces extends DebitCard{
+public class DebitCardWithBonuces extends DebitCard{
 
     private static final BigDecimal bonucePerCent = BigDecimal.valueOf(0.01);
     private BigDecimal debitCardBonuceAmount = BigDecimal.ZERO;
 
     protected BigDecimal getDebitCardBonuceAmount() {
-        return  this.debitCardBonuceAmount;
+        return  debitCardBonuceAmount;
     }
 
     protected void setDebitCardBonuceAmount(BigDecimal updatedDebitCardBonuces) {
-        this.debitCardBonuceAmount = updatedDebitCardBonuces;
+        debitCardBonuceAmount = updatedDebitCardBonuces;
     }
 
     @Override
     public boolean pay(BigDecimal amountToPay) {
 
         if (super.pay(amountToPay)){
-            this.setDebitCardBonuceAmount(this.getDebitCardBonuceAmount().add(amountToPay
-                    .multiply(bonucePerCent).setScale(0, RoundingMode.HALF_UP)));
+            setDebitCardBonuceAmount(getDebitCardBonuceAmount().add(amountToPay
+                    .multiply(bonucePerCent).setScale(0, 4)));
             return true;
         }
         return false;
@@ -29,7 +29,7 @@ public class DebitCardBigBonuces extends DebitCard{
 
     @Override
     public void getInformationAboutAvailableFunds() {
-        this.getBalanceInformation();
-        System.out.println("Бонусы на карте: " + this.getDebitCardBonuceAmount());
+        System.out.println("Баланс на дебетовой карте: " + getBankCardBalance());
+        System.out.println("Бонусы на карте: " + getDebitCardBonuceAmount());
     }
 }

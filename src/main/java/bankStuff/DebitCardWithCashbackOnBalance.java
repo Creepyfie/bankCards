@@ -9,11 +9,11 @@ public class DebitCardWithCashbackOnBalance extends DebitCard{
     private BigDecimal totalCashBack = BigDecimal.ZERO;
 
     protected BigDecimal getTotalCashBack() {
-        return this.totalCashBack;
+        return totalCashBack;
     }
 
     protected void setTotalCashBack(BigDecimal updatedTotalCashBack) {
-        this.totalCashBack = updatedTotalCashBack;
+        totalCashBack = updatedTotalCashBack;
     }
 
     @Override
@@ -22,9 +22,11 @@ public class DebitCardWithCashbackOnBalance extends DebitCard{
         if (super.pay(amountToPay)){
             if (amountToPay.compareTo(cashBackWorkingStartSum) >= 0) {
                 BigDecimal cashBack = amountToPay.multiply(cashBackPerCent);
-                this.topUpBalance(cashBack);
-                this.setTotalCashBack(this.getTotalCashBack().add(cashBack));
+                setBankCardBalance(getBankCardBalance().add(cashBack));
+                System.out.println("Начислен кэшбек в размере: " + cashBack);
+                setTotalCashBack(getTotalCashBack().add(cashBack));
             }
+            System.out.println("Оплата прошла успешно!");
             return true;
         }
         return false;
@@ -32,7 +34,7 @@ public class DebitCardWithCashbackOnBalance extends DebitCard{
 
     @Override
     public void getInformationAboutAvailableFunds() {
-        this.getBalanceInformation();
-        System.out.println("Всего накоплено кэшбека на баланс: " + this.getTotalCashBack());
+        System.out.println("Баланс на дебетовой карте: = " + getBankCardBalance());
+        System.out.println("Всего накоплено кэшбека на баланс: " + getTotalCashBack());
     }
 }

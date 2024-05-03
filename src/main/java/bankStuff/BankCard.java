@@ -20,6 +20,8 @@ abstract class BankCard {
 
     protected abstract void getBalanceInformation();
 
-    protected abstract void getInformationAboutAvailableFunds();
+    protected void getInformationAboutAvailableFunds() {
+        this.getBalanceInformation();
+    }
 
 }

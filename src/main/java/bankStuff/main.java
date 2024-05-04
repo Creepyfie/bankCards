@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 
 public class main {
     public static void main(String[] args){
-        CreditCard creditCard = new CreditCard();
+        CreditCard creditCard = new CreditCard(new BigDecimal(10000));
         creditCard.topUpBalance(new BigDecimal(3000));
         creditCard.getBalanceInformation();
         creditCard.pay(new BigDecimal(1000));
@@ -19,7 +19,7 @@ public class main {
         debitCardWithBonuces.pay(new BigDecimal(100));
         debitCardWithBonuces.getInformationAboutAvailableFunds();
 
-        CreditCardWithBonuces creditCardWithBonuces = new CreditCardWithBonuces();
+        CreditCardWithBonuces creditCardWithBonuces = new CreditCardWithBonuces(new BigDecimal(10000));
         creditCardWithBonuces.topUpBalance(new BigDecimal(10000));
         creditCardWithBonuces.getInformationAboutAvailableFunds();
         creditCardWithBonuces.pay(new BigDecimal(15000));

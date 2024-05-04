@@ -21,7 +21,7 @@ public class DebitCardWithCashbackOnBalance extends DebitCard{
 
         if (super.pay(amountToPay)){
             if (amountToPay.compareTo(cashBackWorkingStartSum) >= 0) {
-                BigDecimal cashBack = amountToPay.multiply(cashBackPerCent);
+                BigDecimal cashBack = amountToPay.multiply(cashBackPerCent).setScale(0,4);
                 setBankCardBalance(getBankCardBalance().add(cashBack));
                 System.out.println("Начислен кэшбек в размере: " + cashBack);
                 setTotalCashBack(getTotalCashBack().add(cashBack));

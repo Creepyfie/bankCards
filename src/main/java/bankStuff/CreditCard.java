@@ -4,30 +4,49 @@ import java.math.BigDecimal;
 
 public class CreditCard extends BankCard {
 
-    protected static final BigDecimal creditCardCreditLimit = BigDecimal.valueOf(10000);
-    private BigDecimal creditCardCreditFunds = new BigDecimal(10000);
+    protected static final BigDecimal DEFAULTCREDITLIMIT = BigDecimal.valueOf(10000);
+    private BigDecimal creditLimit;
+    private BigDecimal creditFunds;
 
-    protected BigDecimal getCreditCardCreditFunds() {
-        return creditCardCreditFunds;
+    protected BigDecimal getCreditLimit() {
+        return creditLimit;
     }
 
-    protected void setCreditCardCreditFunds(BigDecimal updatedCreditCardCreditFunds) {
-        this.creditCardCreditFunds = updatedCreditCardCreditFunds;
+    protected void setCreditLimit(BigDecimal creditLimitToSet) {
+        creditLimit = creditLimitToSet;
+    }
+
+    protected BigDecimal getCreditFunds() {
+        return creditFunds;
+    }
+
+    protected void setCreditFunds(BigDecimal updatedCreditCardCreditFunds) {
+        this.creditFunds = updatedCreditCardCreditFunds;
+    }
+
+    public CreditCard(BigDecimal creditLimit) {
+        setCreditLimit(creditLimit);
+        setCreditFunds(creditLimit);
+    }
+
+    public CreditCard() {
+        setCreditLimit(DEFAULTCREDITLIMIT);
+        setCreditFunds(DEFAULTCREDITLIMIT);
     }
 
     @Override
     public void topUpBalance(BigDecimal addingAmount) {
-        BigDecimal creditFunds = getCreditCardCreditFunds();
-        if (creditFunds.compareTo(creditCardCreditLimit) < 0) {
-            if (creditFunds.add(addingAmount).compareTo(creditCardCreditLimit) <= 0) {
+        BigDecimal creditFunds = getCreditFunds();
+        if (creditFunds.compareTo(getCreditLimit()) < 0) {
+            if (creditFunds.add(addingAmount).compareTo(getCreditLimit()) <= 0) {
                 creditFunds = creditFunds.add(addingAmount);
-                setCreditCardCreditFunds(creditFunds);
+                setCreditFunds(creditFunds);
             }
             else {
                 BigDecimal afterTopUpBalance = getBankCardBalance()
-                                        .add(addingAmount.subtract(creditCardCreditLimit.subtract(creditFunds)));
+                                        .add(addingAmount.subtract(getCreditLimit().subtract(creditFunds)));
                 setBankCardBalance(afterTopUpBalance);
-                setCreditCardCreditFunds(creditCardCreditLimit);
+                setCreditFunds(getCreditLimit());
             }
         } else {
             setBankCardBalance(getBankCardBalance().add(addingAmount));
@@ -38,7 +57,7 @@ public class CreditCard extends BankCard {
     @Override
     public boolean pay(BigDecimal amountToPay) {
         BigDecimal creditCardCashBalance = getBankCardBalance();
-        BigDecimal creditFunds = getCreditCardCreditFunds();
+        BigDecimal creditFunds = getCreditFunds();
         if (amountToPay.compareTo(creditCardCashBalance.add(creditFunds)) > 0){
             System.out.println("Недостаточно средств на карте и кредитном счету!");
             return false;
@@ -47,7 +66,7 @@ public class CreditCard extends BankCard {
                 setBankCardBalance(creditCardCashBalance.subtract(amountToPay));
             }   else {
                 creditFunds = creditFunds.subtract(amountToPay.subtract(creditCardCashBalance));
-                setCreditCardCreditFunds(creditFunds);
+                setCreditFunds(creditFunds);
                 setBankCardBalance(BigDecimal.ZERO);
             }
             System.out.println("Оплата прошла успешно!");
@@ -56,8 +75,8 @@ public class CreditCard extends BankCard {
 
     @Override
     protected void getBalanceInformation() {
-        System.out.println("Кредитный лимит: " + creditCardCreditLimit);
-        System.out.println("Кредитные средства: " + getCreditCardCreditFunds());
+        System.out.println("Кредитный лимит: " + getCreditLimit());
+        System.out.println("Кредитные средства: " + getCreditFunds());
         System.out.println("Собственные средства: " + getBankCardBalance());
     }
 }
